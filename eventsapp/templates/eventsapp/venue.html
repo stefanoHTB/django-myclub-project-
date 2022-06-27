@@ -1,0 +1,48 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+
+<center>
+   <h1>venues..</h1>
+<br/>
+   {% for venue in venues %}
+
+   <a href="{% url 'show-venue' venue.id %}">{{venue}}</a> 
+   <a href="{% url 'update-venue' venue.id %}" class="btn btn-outline-secondary">- UPDATE</a>
+   <a href="{% url 'delete-venue' venue.id %}" class="btn btn-outline-danger">- DELETE</a><br/>
+
+   {% endfor %}
+
+   <br/><br/>
+   <hr><br/>
+
+</center>
+
+
+   {% if venues.has_previous %}
+      <a href="?page=1">&laquo First</a>
+      <a href="?page={{ venues.previous_page_number }}"> Previous</a>
+   {% endif %}
+
+
+   Page {{ venues.number }} of {{ venues.paginator.num_pages }}
+
+
+   {% if venues.has_next %}
+   <a href="?page={{ venues.next_page_number }}">next</a>
+   <a href="?page={{ venues.paginator.num_pages }}">Last &raquo</a>
+
+   {% endif %}
+
+   <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+{% endblock %}

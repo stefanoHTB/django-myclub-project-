@@ -1,0 +1,26 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<center>
+ <h1>Add Venue to Database</h1>
+ <br/><br/>
+ {% if submitted %}
+    your venue was submitted succesfully!!
+
+    {% else %}
+
+ <form action="" method="POST" enctype="multipart/form-data">
+     {% csrf_token %}
+      
+     {{form.as_p}}
+     <input type="submit" value="Submit" class="btn-btn-seconday">
+
+ </form>
+ {% endif %}
+
+</center>
+{% else %}
+<h1>log in sucker</h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+
+<center>
+   <h1>update venue</h1>
+   <br/>
+   <form action="" method="POST">
+       {% csrf_token %}
+   {{form.as_p}}
+   <br/>
+   <input type="submit" value="UPDATE" class="btn btn-secondary">
+
+
+
+   </form>
+</center>
+
+{% endblock %}

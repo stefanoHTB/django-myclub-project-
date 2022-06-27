@@ -1,0 +1,26 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+
+<center>
+   <h1>owner id :{{ venue_owner}}</h1>
+   <h1>{{venue}}</h1>
+   <br/>
+   {{venue.address}}<br/>
+   {{venue.zip_code}}<br/>
+   {{venue.phone}}<br/>
+   {{venue.email_address}}<br/>
+   <a href="{{venue.web}}">{{venue.web}}</a><br/>
+   <br>
+
+   {% if venue.venue_image %}
+   <img src=" venue.venue_image.url }}" width="">
+   {% endif %}
+
+
+   
+    
+</center>
+
+{% endblock %}

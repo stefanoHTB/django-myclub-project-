@@ -1,0 +1,21 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+logged in user : {{user}}
+<center>
+   <h1>Hello {{user}}! Events for {{month}} {{year}}</h1>
+   
+   {{cal|safe}}
+   <br><br>
+
+   {{current_year}}
+   <br>
+   {{time}}
+
+</center>
+{% else %}
+<h1>show login page</h1>
+{% endif %}
+{% endblock %}

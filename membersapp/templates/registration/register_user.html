@@ -1,0 +1,26 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+<br/><br/>
+
+{% endif %}
+<h1>REGISTER</h1>
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+
+ <form action="{% url 'register_user' %}" method="POST">
+     {% csrf_token %}
+
+     {{form.as_p}}
+     
+      
+     <input type="submit" value="Submit" class="btn-btn-seconday">
+
+ </form>
+</div>
+ 
+   
+
+{% endblock %}

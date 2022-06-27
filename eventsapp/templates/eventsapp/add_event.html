@@ -1,0 +1,30 @@
+{% extends 'eventsapp/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>ADD EVENT..</h1>
+<br/><br/>
+{% if submitted %}
+    your Event was submitted succesfully!!
+
+    {% else %}
+
+ <form action="" method="POST">
+     {% csrf_token %}
+      
+     {{form.as_p}}
+     <input type="submit" value="Submit" class="btn-btn-seconday">
+
+ </form>
+
+ {% endif %}
+
+ {% else %}
+ <h1>log in sucker</h1>
+
+ {% endif %}
+   
+
+{% endblock %}
